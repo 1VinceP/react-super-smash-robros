@@ -1,0 +1,25 @@
+.battle {
+    justify-content: space-around;
+}
+
+.b-fighter-container {
+    height: 550px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    background: rgba( 0, 0, 0, 0.6 );
+    border-radius: 3px;
+}
+
+.b-buttons {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.b-buttons button {
+    width: 80px;
+}
