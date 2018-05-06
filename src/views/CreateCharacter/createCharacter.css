@@ -21,6 +21,18 @@
     font-size: 20px;
 }
 
+.roles {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.role {
+    width: 80px;
+    border: 1px solid #000;
+}
+
 .colors {
     width: 100%;
     display: flex;
@@ -32,7 +44,7 @@
     width: 150px;
     border: 1px solid black;
     box-shadow:  3px 3px 6px rgba( 0, 0, 0, 0.6 );
-    margin: 20px 0;
+    margin: 6px 0 20px 0;
 }
 
 #green {

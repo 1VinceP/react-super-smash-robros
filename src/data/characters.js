@@ -9,7 +9,7 @@ export default [
         cStrength: 8,
         image: 'http://robohash.org/Charlie',
         dead: 'c-alive',
-        special: specials[2]
+        special: specials.fighter[1]
     },
     {
         name: 'Francis',
@@ -19,7 +19,7 @@ export default [
         cStrength: 2,
         image: 'http://robohash.org/Francis',
         dead: 'c-alive',
-        special: specials[0]
+        special: specials.defender[1]
     },
     {
         name: 'Bill',
@@ -29,6 +29,16 @@ export default [
         cStrength: 5,
         image: 'http://robohash.org/Bill',
         dead: 'c-alive',
-        special: specials[1]
+        special: specials.mixed[0]
+    },
+    {
+        name: 'Horatio',
+        tHealth: 24,
+        cHealth: 24,
+        tStrength: 3,
+        cStrength: 3,
+        image: 'http://robohash.org/Horatio',
+        dead: 'c-alive',
+        special: specials.mixed[2]
     }
 ];

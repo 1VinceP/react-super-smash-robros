@@ -24,17 +24,31 @@ class CreateCharacter extends Component {
     }
 
     addCharacter() {
-        const { name, color, roboSet } = this.state
+        const { name, color, roboSet, role } = this.state
 
-        if( !name || !color ) {
+        if( !name || !color || !role ) {
             alert( 'Please make a choice for every option' )
             return;
         }
 
-        let tHealth = Math.floor(Math.random() * 30) + 1
-        let tStrength = tHealth > 10 ? Math.floor(Math.random() * 4) + 2 : Math.floor(Math.random() * 5 + 6)
-        let specialNum = Math.floor( Math.random() * specials.length )
-        let special = specials[specialNum]
+        let tHealth, tStrength, special
+        let specialNum = Math.floor( Math.random() * specials[role].length )
+
+        if( role === 'fighter' ) {
+            tHealth = Math.floor( Math.random() * 8 + 2 )
+            tStrength = Math.floor( Math.random() * 5 + 5 )
+        }
+        else if( role === 'defender' ) {
+            tHealth = Math.floor( Math.random() * 15 + 15 )
+            tStrength = Math.floor( Math.random() * 4 + 1 )
+        }
+        else if( role === 'mixed' ) {
+            tHealth = Math.floor( Math.random() * 10 + 8 )
+            tStrength = Math.floor( Math.random() * 2 + 4 )
+        }
+
+        // special = specials[role][specialNum]
+        special = specials[role][0]
 
         let newCharacter = {
             name,
@@ -51,9 +65,25 @@ class CreateCharacter extends Component {
         this.props.characterStore.addCharacter( newCharacter )
         this.setState({
             name: '',
+            role: '',
             color: '',
             sprite: ''
         })
+    }
+
+    setRole( role ) {
+        this.setState({ role })
+    }
+
+    selectRole() {
+        let roles = document.getElementsByClassName('role')
+
+        for( let i = 0; i < roles.length; i++ ) {
+            if( roles[i].id === this.state.role )
+                document.getElementById( this.state.role ).style.border = '3px solid #0f0'
+            else
+                document.getElementById( roles[i].id ).style.border = '1px solid #000'
+        }
     }
 
     setColor( color ) {
@@ -97,6 +127,7 @@ class CreateCharacter extends Component {
     }
 
     render() {
+        this.selectRole()
         this.selectColor()
         this.selectSprite()
 
@@ -104,12 +135,18 @@ class CreateCharacter extends Component {
             <div className='App-main'>
                 <div className='cc-container'>
                     <input onChange={e => this.handleChange(e)} value={this.state.name} placeholder='enter a name' />
+                    
+                    <section className='roles'>
+                        <button className='role' id='fighter' onClick={() => this.setRole('fighter')}>Fighter</button>
+                        <button className='role' id='defender' onClick={() => this.setRole('defender')}>Defender</button>
+                        <button className='role' id='mixed' onClick={() => this.setRole('mixed')}>Mixed</button>
+                    </section>
 
                     <section className='colors'>
-                        <div className='color' id='green' onClick={() => this.setColor("green")} />
-                        <div className='color' id='yellow' onClick={() => this.setColor("yellow")} />
-                        <div className='color' id='red' onClick={() => this.setColor("red")} />
-                        <div className='color' id='blue' onClick={() => this.setColor("blue")} />
+                        <div className='color' id='green' onClick={() => this.setColor('green')} />
+                        <div className='color' id='yellow' onClick={() => this.setColor('yellow')} />
+                        <div className='color' id='red' onClick={() => this.setColor('red')} />
+                        <div className='color' id='blue' onClick={() => this.setColor('blue')} />
                     </section>
 
                     <section className='sprites'>

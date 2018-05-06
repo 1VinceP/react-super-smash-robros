@@ -1,0 +1,25 @@
+.glossary {
+    flex-direction: column;
+    padding: 60px 0;
+}
+
+.g-container {
+    width: 60%;
+    padding: 20px;
+    padding-bottom: 6px;
+    background: rgba( 0, 0, 0, 0.6 );
+    border-radius: 3px;
+    color: #ddd;
+}
+
+.g-title {
+    display: flex;
+}
+.g-title p {
+    margin-left: 10px;
+}
+
+.g-desc {
+    font-size: 12px;
+    margin-top: 6px;
+}

@@ -68,7 +68,9 @@ class Battle extends Component {
         else if( attack === 2 ) {
             let bonus = Math.floor( Math.random() * 4 )
             if( bonus === 3 ) {
-                fighter.cStrength--
+                setTimeout(() => {
+                    fighter.cStrength--
+                }, 300);
             }
 
             this.setState({ [`bonus${pos}`]: bonus })
@@ -76,45 +78,24 @@ class Battle extends Component {
             return fighter.cStrength + bonus
         }
         else if( attack === 3 ) {
-            const { fighter1, fighter2 } = this.props.characterStore  
-            const { target, stat, amount, fight } = fighter.special
-            let newTarg
+            const { fighter1, fighter2, reduceUses } = this.props.characterStore  
+            let { effect, uses } = fighter.special
+            let self, enemy
 
-            console.log( target, stat, amount, fight )
-
-            if( target === 'self' && pos === 1 ) ////////////////// BROKEN
-                newTarg = fighter1
-            else if( target === 'self' && pos === 2 )
-                newTarg = fighter2
-            else if( target === 'enemy' && pos === 1 )
-                newTarg = fighter2
-            else if( target === 'enemy' && pos === 2 )
-                newTarg = fighter1
-
-            console.log( newTarg )
-
-            if( stat === 'cHealth' ) {
-                let heal = newTarg.cHealth += amount
-                if( heal > newTarg.tHealth )
-                    {console.log( 'if' ); newTarg.cHealth = newTarg.tHealth}
-                else
-                    {console.log( 'else' ); newTarg.cHealth + amount}
+            if( pos === 1 ) {
+                self = fighter1
+                enemy = fighter2
             }
-            else if( stat === 'cStrength' )
-                newTarg.cStrength += amount
-            else if( stat === 'swap' ) {
-                let str = newTarg.cStrength
-                newTarg.cStrength = newTarg.cHealth
-                newTarg.cHealth = str
-                let tStr = newTarg.tStrength
-                newTarg.tStrength = newTarg.tHealth
-                newTarg.tHealth = tStr
+            else {
+                self = fighter2
+                enemy = fighter1
             }
 
-            if( !fight )
-                return 0
-            else
-                return fighter.cStrength
+            setTimeout(() => {
+                effect( self, enemy, uses )
+            }, 500);
+
+            return 0
         }
     }
 
@@ -147,7 +128,6 @@ class Battle extends Component {
     }
 
     selectAttack( num, attack ) {
-        console.log( 'hit', num, attack )
         this.setState({ [`attack${num}`]: attack })
     }
 

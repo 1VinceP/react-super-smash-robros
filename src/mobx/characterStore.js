@@ -50,10 +50,10 @@ decorate( CharacterStore, {
     characters: observable,
     fighter1: observable,
     fighter2: observable,
+    f1Spec: observable,
+    f2Spec: observable,
     addCharacter: action,
-    setCharacter: action,
-    clearCharacterOne: action,
-    clearCharacterTwo: action
+    setCharacter: action
 } )
 
 let characterStore = new CharacterStore()

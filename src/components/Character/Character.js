@@ -60,7 +60,7 @@ class Character extends Component {
     }
 
     renderAttacks() {
-        const { selectAttack, character, player  } = this.props
+        const { selectAttack, character, player, spec  } = this.props
         let advDisable = false
 
         character.cStrength <= 0 ? advDisable = true : advDisable = false
@@ -77,7 +77,7 @@ class Character extends Component {
                             </label>
                             <label>
                                 <input type='radio' name='attackChoice' value='3' onClick={() => selectAttack(3)} />
-                                Special Attack
+                                Special Attack ({spec.uses})
                             </label>
                         </form>
         }
