@@ -47,7 +47,6 @@ class CreateCharacter extends Component {
             tStrength = Math.floor( Math.random() * 2 + 4 )
         }
 
-        // special = specials[role][specialNum]
         special = specials[role][0]
 
         let newCharacter = {
@@ -57,7 +56,7 @@ class CreateCharacter extends Component {
             tStrength,
             cStrength: tStrength,
             color: `radial-gradient(white, ${color})`,
-            image: `http://robohash.org/${name}${roboSet}`,
+            image: `https://robohash.org/${name}${roboSet}`,
             dead: 'c-alive',
             special
         }
@@ -134,7 +133,7 @@ class CreateCharacter extends Component {
         return (
             <div className='App-main'>
                 <div className='cc-container'>
-                    <input onChange={e => this.handleChange(e)} value={this.state.name} placeholder='enter a name' />
+                    <input onChange={e => this.handleChange(e)} value={this.state.name} placeholder='Enter a name' />
                     
                     <section className='roles'>
                         <button className='role' id='fighter' onClick={() => this.setRole('fighter')}>Fighter</button>

@@ -18,3 +18,9 @@
     right: 50px;
     margin-top: -35px;
 }
+
+@media (max-width: 800px) {
+    .help {
+        padding: 100px 0 60px 0;
+    }
+}

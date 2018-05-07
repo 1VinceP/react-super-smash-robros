@@ -23,3 +23,21 @@
 .b-buttons button {
     width: 80px;
 }
+
+@media (max-width: 750px) {
+    .battle {
+        flex-direction: column;
+        padding: 60px 0;
+    }
+
+    .b-fighter-container {
+        height: 400px;
+    }
+
+    .b-buttons {
+        height: 50px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

@@ -30,6 +30,11 @@ class Battle extends Component {
         const { attack1, attack2 } = this.state
         let { fighter1, fighter2 } = this.props.characterStore
 
+        this.setState({
+            bonus1: '',
+            bonus2: '',
+        })
+
         let fighter1Ability = this.checkAbility( 1 )
         let fighter2Ability = this.checkAbility( 2 )
 

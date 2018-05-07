@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { characterStore } from './mobx/characterStore';
 
 import { Provider } from 'mobx-react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 const stores = {
     characterStore
@@ -15,8 +15,8 @@ const stores = {
 
 ReactDOM.render(
     <Provider {...stores}>
-        <BrowserRouter>
+        <HashRouter>
             <App />
-        </BrowserRouter>
+        </HashRouter>
     </Provider>, document.getElementById('root'));
 registerServiceWorker();

@@ -7,7 +7,7 @@ export default [
         cHealth: 4,
         tStrength: 8,
         cStrength: 8,
-        image: 'http://robohash.org/Charlie',
+        image: 'https://robohash.org/Charlie',
         dead: 'c-alive',
         special: specials.fighter[1]
     },
@@ -17,7 +17,7 @@ export default [
         cHealth: 20,
         tStrength: 2,
         cStrength: 2,
-        image: 'http://robohash.org/Francis',
+        image: 'https://robohash.org/Francis',
         dead: 'c-alive',
         special: specials.defender[1]
     },
@@ -27,7 +27,7 @@ export default [
         cHealth: 10,
         tStrength: 5,
         cStrength: 5,
-        image: 'http://robohash.org/Bill',
+        image: 'https://robohash.org/Bill',
         dead: 'c-alive',
         special: specials.mixed[0]
     },
@@ -37,7 +37,7 @@ export default [
         cHealth: 24,
         tStrength: 3,
         cStrength: 3,
-        image: 'http://robohash.org/Horatio',
+        image: 'https://robohash.org/Horatio',
         dead: 'c-alive',
         special: specials.mixed[2]
     }

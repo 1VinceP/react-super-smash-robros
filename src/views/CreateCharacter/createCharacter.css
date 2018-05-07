@@ -1,5 +1,5 @@
 .cc-container {
-    width: 70%;
+    width: 80%;
     height: 70%;
     display: flex;
     flex-direction: column;
@@ -73,6 +73,7 @@
     box-shadow:  3px 3px 6px rgba( 0, 0, 0, 0.6 );
     margin: 20px 0;
     background: white;
+    flex-wrap: wrap;
 }
 .sprite > img {
     height: 100%;
@@ -84,6 +85,33 @@
     color: #fff;
     background: rgba( 0, 0, 0, 0.6 );
     border-radius: 5px;
-    padding: 20px 8.5%;
+    padding: 20px 4%;
     margin-top: 20px;
+}
+
+@media (max-width: 750px) {
+    .cc-container {
+        margin: 60px 0;
+        width: 90%;
+    }
+    
+    .colors {
+        width: 350px;
+        flex-wrap: wrap;
+    }
+
+    .sprites {
+        width: 350px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 350px) {
+    .colors {
+        width: 300px;
+    }
+
+    .sprites {
+        width: 300px;
+    }
 }

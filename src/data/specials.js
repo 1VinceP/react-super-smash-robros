@@ -42,7 +42,6 @@ export default {
             uses: 2,
             effect: function( self, enemy ) {
                 self.cHealth += 3
-                console.log( self.cHealth )
                 if( self.cHealth > self.tHealth )
                     self.cHealth = self.tHealth
             }
